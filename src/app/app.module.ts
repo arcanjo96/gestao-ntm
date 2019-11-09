@@ -9,10 +9,13 @@ import { PhoneMaskDirective } from './shared/directives/phone-mask.directive';
 import { CpfMaskDirective } from './shared/directives/cpf-mask.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomMaterialModule } from './shared/custom-material.module';
+import { HeaderComponent } from './header/header.component';
+import { SearchComponent } from './search/search.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
-    AppComponent, PhoneMaskDirective, CpfMaskDirective
+    AppComponent, PhoneMaskDirective, CpfMaskDirective, HeaderComponent, SearchComponent, CardComponent
   ],
   imports: [
     BrowserModule,
