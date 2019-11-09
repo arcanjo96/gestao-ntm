@@ -1,23 +1,25 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class UserService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAllUsers() {
     return this.http.get("http://localhost:8000/api/v1/users").toPromise();
   }
 
   store(user) {
-    return this.http.post("http://localhost:8000/api/v1/user", user).toPromise();
+    return this.http
+      .post("http://localhost:8000/api/v1/user", user)
+      .toPromise();
   }
 
-  update() {
-    
+  update(user) {
+    return this.http
+      .put(`http://localhost:8000/api/v1/user/${user.id}`, user)
+      .toPromise();
   }
-
 }

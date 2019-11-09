@@ -1,1 +1,55 @@
-<p>admin-register works!</p>
+<div class="example-container">
+  <h1>Criar Admin</h1>
+  <form [formGroup]="adminForm">
+    <mat-form-field>
+      <input matInput formControlName="login" placeholder="Login" type="text" />
+      <mat-error
+        *ngIf="
+          (adminForm.get('login').errors && adminForm.get('login').touched) ||
+          adminForm.get('login').untouched
+        "
+      >
+        {{ adminForm.get("login").errors.message }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="password"
+        placeholder="Password"
+        type="password"
+      />
+      <mat-error
+        *ngIf="
+          (adminForm.get('password').errors &&
+            adminForm.get('password').touched) ||
+          adminForm.get('password').untouched
+        "
+      >
+        {{ adminForm.get("password").errors.message }}
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      id="btn-add"
+      mat-raised-button
+      color="primary"
+      [disabled]="adminForm.invalid"
+      (click)="save()"
+      type="submit"
+    >
+      Cadastrar
+    </button>
+
+    <button
+      id="btn-add"
+      mat-raised-button
+      color="warn"
+      (click)="goBack()"
+      type="button"
+    >
+      Voltar
+    </button>
+  </form>
+</div>

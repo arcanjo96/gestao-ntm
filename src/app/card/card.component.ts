@@ -1,18 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { UserService } from '../user.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { UserService } from "../user.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: "app-card",
+  templateUrl: "./card.component.html",
+  styleUrls: ["./card.component.css"]
 })
 export class CardComponent implements OnInit {
+  @Input() user;
 
-  @Input() user;  
+  constructor(private service: UserService, private route: Router) {}
 
-  constructor(private service: UserService) { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  update(user) {
+    this.service.update(user).then(result => {
+      alert(`Usuário ${user.name} validado!`);
+      window.location.href = "/admin/validate";
+    });
   }
-
 }

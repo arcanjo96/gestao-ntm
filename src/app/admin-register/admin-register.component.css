@@ -1,0 +1,24 @@
+form {
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form > * {
+  width: 50%;
+  margin: 0 auto;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn-add {
+  width: 15%;
+  margin: 0.5%;
+}

@@ -2,14 +2,48 @@
   <h1>Login</h1>
   <br />
 
-  <mat-form-field>
-    <input matInput placeholder="Login" type="text" />
-  </mat-form-field>
+  <form [formGroup]="adminForm">
+    <mat-form-field>
+      <input matInput formControlName="login" placeholder="Login" type="text" />
+      <mat-error
+        *ngIf="
+          (adminForm.get('login').errors && adminForm.get('login').touched) ||
+          adminForm.get('login').untouched
+        "
+      >
+        {{ adminForm.get("login").errors.message }}
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Senha" type="password" />
-  </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="password"
+        placeholder="Password"
+        type="password"
+      />
+      <mat-error
+        *ngIf="
+          (adminForm.get('password').errors &&
+            adminForm.get('password').touched) ||
+          adminForm.get('password').untouched
+        "
+      >
+        {{ adminForm.get("password").errors.message }}
+      </mat-error>
+    </mat-form-field>
 
-  <button id="btn-add" mat-raised-button color="primary" (click)="login()">Entrar</button>
-  <a (click)="goTo()">Criar conta.</a>
+    <button
+      id="btn-add"
+      mat-raised-button
+      color="primary"
+      [disabled]="adminForm.invalid"
+      (click)="login()"
+      type="submit"
+    >
+      Entrar
+    </button>
+
+    <a (click)="goTo()">Criar conta.</a>
+  </form>
 </div>

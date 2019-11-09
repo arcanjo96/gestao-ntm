@@ -1,5 +1,10 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>Gestão NTM v1.0.0</span>
+    <span *ngIf="isAuthenticated">
+      <button (click)="logout()" mat-icon-button aria-label="logoff">
+        <mat-icon title="sair">power_settings_new</mat-icon>
+      </button></span
+    >
   </mat-toolbar-row>
 </mat-toolbar>
