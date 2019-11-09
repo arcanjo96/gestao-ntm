@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { ValidateRequired } from '../shared/validators/required.validator';
+import { UserService } from '../user.service';
+import { SkillService } from '../skill.service';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  public registerForm: FormGroup;
+  skills: any;
+
+  constructor(private service: UserService, private skillService: SkillService) { 
+    this.registerForm = new FormGroup({
+      name: new FormControl(null, [ValidateRequired]),
+      email: new FormControl(null, [ValidateRequired]),
+      cpf: new FormControl(null, [ValidateRequired]),
+      phone: new FormControl(null),
+      status: new FormControl("Não Validado"),
+      skill_id: new FormControl(null, [ValidateRequired] ),
+    });
+  }
 
   ngOnInit() {
+    this.skillService.getAllSkills().then((skills) => {
+      console.log(skills);
+      this.skills = skills;
+    });
+  }
+
+  save() {
+    const dados = this.registerForm.getRawValue();
+    this.service.store(dados).then((result) => {
+      console.log(result);
+      alert(`Usuário: ${result["name"].toUpperCase()}, criado com sucesso!`);
+      this.registerForm.clearValidators;
+      this.registerForm.reset();
+    });
   }
 
 }

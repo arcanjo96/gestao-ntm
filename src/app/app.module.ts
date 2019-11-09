@@ -15,6 +15,8 @@ import { CardComponent } from "./card/card.component";
 import { RouterModule } from "@angular/router";
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
+import { ListCardsComponent } from './list-cards/list-cards.component';
+import { AdminRegisterComponent } from './admin-register/admin-register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { AdminComponent } from './admin/admin.component';
     SearchComponent,
     CardComponent,
     RegisterComponent,
-    AdminComponent
+    AdminComponent,
+    ListCardsComponent,
+    AdminRegisterComponent
   ],
   imports: [
     BrowserModule,

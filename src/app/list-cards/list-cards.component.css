@@ -1,0 +1,9 @@
+div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#title {
+    margin-left: 20px;
+}

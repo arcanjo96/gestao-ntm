@@ -3,12 +3,13 @@
   <br />
 
   <mat-form-field>
-    <input matInput placeholder="Nome" type="text" />
+    <input matInput placeholder="Login" type="text" />
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Telefone" type="number" />
+    <input matInput placeholder="Senha" type="password" />
   </mat-form-field>
 
-  <button id="btn-add" mat-raised-button color="primary">Entrar</button>
+  <button id="btn-add" mat-raised-button color="primary" (click)="login()">Entrar</button>
+  <a (click)="goTo()">Criar conta.</a>
 </div>
