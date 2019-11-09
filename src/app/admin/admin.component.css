@@ -1,0 +1,17 @@
+.example-container {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-container > * {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#btn-add {
+  width: 15%;
+}
